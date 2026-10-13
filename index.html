@@ -59,13 +59,11 @@ header{background:var(--topbar);color:#fff;padding:0;display:flex;flex-direction
 
 .layout{display:flex;max-width:1400px;margin:0 auto}
 .main{flex:1;padding:16px;min-width:0}
-.sidebar{width:220px;background:var(--sidebar);color:#fff;padding:16px 10px;flex-shrink:0}
-.sidebar .item{padding:11px 14px;border-radius:5px;font-size:12.5px;margin-bottom:5px;cursor:default}
-.sidebar .item.active{background:var(--sidebar-active);font-weight:bold}
-.sidebar .logo-wrap{text-align:center;padding:4px 0 20px}
-.sidebar .logo-wrap .emblem{width:56px;height:56px;border-radius:50%;background:#ffffff1a;margin:0 auto 8px;display:grid;place-items:center;font-size:10px;border:1px solid #ffffff40}
-.sidebar .logo-wrap div.t{font-size:12.5px;line-height:1.6}
-.sidebar .search{background:#ffffff14;border:1px solid #ffffff33;border-radius:5px;padding:7px 10px;font-size:11.5px;color:#cdd8ee;margin-bottom:10px}
+.sidebar{width:240px;background:var(--sidebar);color:#fff;padding:16px 14px;flex-shrink:0}
+.sidebar .item{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px 10px;font-size:13.5px;margin-bottom:2px;cursor:default;border-bottom:1px solid #ffffff14;line-height:1.5}
+.sidebar .item .ic{font-size:14px;opacity:.9}
+.sidebar .item.active{background:#eef2f8;color:#1c3f72;font-weight:bold;border-radius:4px;border-bottom:none;margin:4px 0}
+.sidebar .search{background:var(--card);color:#8292ab;border:1px solid #ffffff55;border-radius:20px;padding:9px 16px;font-size:12px;margin-bottom:16px;text-align:center}
 
 .card{background:var(--card);border:1px solid var(--line);border-radius:2px;margin-bottom:14px;overflow:hidden}
 .info{display:flex;gap:24px;padding:18px 20px;justify-content:flex-end;align-items:center}
@@ -128,13 +126,13 @@ tr:nth-child(even) td{background:var(--soft)}
 <div class="layout">
   <aside class="sidebar">
     <div class="search">جستجوی منو...</div>
-    <div class="item">ثبت نام دروس دانشجو</div>
-    <div class="item">انتخاب واحد</div>
-    <div class="item">حذف و اضافه</div>
-    <div class="item">حذف اضطراری</div>
-    <div class="item">مشاهده آخرین وضعیت ثبت نام</div>
-    <div class="item active">مدیریت مالی نیمسال‌های تحصیلی</div>
-    <div class="item">ارسال درخواست اعتراض به نمره</div>
+    <div class="item"><span>ثبت نام دروس دانشجو</span></div>
+    <div class="item"><span class="ic">✔️</span><span>انتخاب واحد</span></div>
+    <div class="item"><span class="ic">📊</span><span>حذف و اضافه</span></div>
+    <div class="item"><span class="ic">✏️</span><span>حذف اضطراری</span></div>
+    <div class="item"><span class="ic">📄</span><span>مشاهده آخرین وضعیت<br>ثبت نام (نرم حاری)</span></div>
+    <div class="item active"><span class="ic">📁</span><span>مدیریت مالی نیمسال‌های<br>تحصیلی دانشجو</span></div>
+    <div class="item"><span class="ic">📁</span><span>ارسال درخواست اعتراض<br>به نمره در نیمسال جاری</span></div>
     <div class="item">درخواست/مجوز</div>
     <div class="item">ارزشیابی اساتید</div>
   </aside>
