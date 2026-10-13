@@ -6,9 +6,9 @@
 <title>سامانه نمونه آموزشی - دانشجویی (نمونه آموزشی)</title>
 <style>
 :root{
-  --bg:#dbe6f6; --topbar:#2b63b8; --subnav:#eef2f8; --card:#ffffff; --text:#222b3a;
-  --soft:#e7edf8; --line:#c6d4ea; --sidebar:#1e3763; --sidebar-active:#2c5490;
-  --status:#eef1f6; --ok:#1c8a4a; --watermark:#c0392b; --thead:#274e8c;
+  --bg:#dbe6f6; --topbar:#3f72c4; --subnav:#eef2f8; --card:#ffffff; --text:#222b3a;
+  --soft:#e7edf8; --line:#c6d4ea; --sidebar:#24467e; --sidebar-active:#355ea0;
+  --status:#eef1f6; --ok:#1c8a4a; --watermark:#c0392b; --thead:#3a6ab8;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
@@ -28,14 +28,27 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,"Vazirma
 .addr{display:flex;align-items:center;gap:10px;background:#fff;margin:0 0 8px;border-radius:20px;padding:6px 16px;font-size:12px;color:#555;border:1px solid #c7ccd3;direction:ltr;text-align:left}
 .addr .lock{color:#1c8a4a}
 
-header{background:var(--topbar);color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+header{background:var(--topbar);color:#fff;padding:0;display:flex;flex-direction:column}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:10px 20px 4px}
 .brand b{display:block;font-size:14px}
 .brand span{font-size:11px;opacity:.8}
-.icons{display:flex;gap:16px;font-size:13px;opacity:.95}
+.icons{display:flex;gap:16px;font-size:13px;opacity:.95;align-items:center}
+.chrome-row{display:flex;align-items:center;gap:8px;padding:4px 20px 10px}
+.chrome-row .circ{width:16px;height:16px;border-radius:50%;border:2px solid #ffffffb0;background:transparent}
+.chrome-row .sq{width:16px;height:16px;border-radius:2px}
+.chrome-row .sq1{background:#ffffff}
+.chrome-row .sq2{background:#8aa6d8}
+.chrome-row .sq3{background:#aebfe0}
+.chrome-row .sq4{background:#c6d3ec}
+.chrome-row .expander{margin-right:auto;width:26px;height:26px;border-radius:50%;background:#ffffff22;display:grid;place-items:center;font-size:13px;border:1px solid #ffffff40}
 
 .subnav{background:var(--subnav);border-bottom:1px solid var(--line);padding:9px 20px;display:flex;gap:20px;font-size:12px;color:#44567c;align-items:center}
 .subnav .crumb{margin-right:auto;color:#8292ab}
-.util{background:var(--subnav);border-bottom:1px solid var(--line);padding:7px 20px;display:flex;gap:18px;font-size:12px;color:#44567c}
+.util{background:var(--subnav);border-bottom:1px solid var(--line);padding:7px 20px;display:flex;gap:18px;font-size:12px;color:#44567c;align-items:center}
+.util .selectbtn{margin-right:auto;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:5px 12px;font-size:12px;color:#2b63b8;font-weight:bold}
+.subnav span{position:relative;padding-right:14px}
+.subnav span:not(:first-child)::before{content:"|";position:absolute;right:0;color:#b9c6de}
+.subnav span:first-child{padding-right:0}
 .helprow{background:var(--card);border-bottom:1px solid var(--line);padding:8px 20px;font-size:12px;color:#44567c;display:flex;justify-content:flex-end;align-items:center;gap:6px}
 
 .layout{display:flex;max-width:1400px;margin:0 auto}
@@ -46,14 +59,16 @@ header{background:var(--topbar);color:#fff;padding:12px 20px;display:flex;align-
 .sidebar .logo-wrap{text-align:center;padding:4px 0 20px}
 .sidebar .logo-wrap .emblem{width:56px;height:56px;border-radius:50%;background:#ffffff1a;margin:0 auto 8px;display:grid;place-items:center;font-size:10px;border:1px solid #ffffff40}
 .sidebar .logo-wrap div.t{font-size:12.5px;line-height:1.6}
+.sidebar .search{background:#ffffff14;border:1px solid #ffffff33;border-radius:5px;padding:7px 10px;font-size:11.5px;color:#cdd8ee;margin-bottom:10px}
 
-.card{background:var(--card);border:1px solid var(--line);border-radius:4px;margin-bottom:14px;overflow:hidden}
+.card{background:var(--card);border:1px solid var(--line);border-radius:2px;margin-bottom:14px;overflow:hidden}
 .info{display:flex;gap:24px;padding:18px 20px;justify-content:flex-end;align-items:center}
 .info dl{margin:0;display:grid;grid-template-columns:auto auto;gap:10px 14px;font-size:13.5px;direction:rtl}
 .info dt{color:#222;text-align:right}.info dd{margin:0;font-weight:normal;text-align:right}
 .avatar{width:84px;height:98px;background:var(--soft);border:1px dashed var(--line);display:grid;place-items:center;font-size:10.5px;border-radius:4px;color:#8292ab;text-align:center;order:2}
 
-.status{background:var(--status);padding:14px 20px;display:flex;justify-content:space-between;font-weight:bold;gap:10px;flex-wrap:wrap;font-size:14px;border-top:1px solid var(--line)}
+.status{background:var(--status);padding:14px 20px;display:flex;justify-content:space-between;font-weight:bold;gap:10px;flex-wrap:wrap;font-size:14px;border-top:1px solid var(--line);position:relative}
+.status::after{content:"";position:absolute;top:10px;bottom:10px;right:50%;width:1px;background:var(--line)}
 
 .title{background:var(--thead);color:#fff;padding:9px 14px;font-weight:bold;font-size:13px}
 .scroll{overflow-x:auto}
@@ -77,11 +92,19 @@ tr:nth-child(even) td{background:var(--soft)}
 </div>
 
 <header>
-  <div class="brand"><b>سامانه نمونه مدیریت امور آموزشی</b><span>آموزشی — نسخه نمایشی</span></div>
-  <div class="icons">👤 &nbsp; ✉️ &nbsp; خروج</div>
+  <div class="header-top">
+    <div class="brand"><b>سامانه نمونه مدیریت امور آموزشی</b><span>آموزشی — نسخه نمایشی</span></div>
+    <div class="icons">👤 &nbsp; ✉️ &nbsp; خروج</div>
+  </div>
+  <div class="chrome-row">
+    <span class="circ"></span>
+    <span class="sq sq1"></span><span class="sq sq2"></span><span class="sq sq3"></span><span class="sq sq4"></span>
+    <span class="expander">›</span>
+  </div>
 </header>
 
 <div class="util">
+  <span class="selectbtn">📋 انتخاب</span>
   <span>بازگشت</span><span>چاپ صفحه جاری</span><span>درباره</span>
 </div>
 
@@ -95,60 +118,4 @@ tr:nth-child(even) td{background:var(--soft)}
 <div class="layout">
   <aside class="sidebar">
     <div class="logo-wrap"><div class="emblem">آرم نمونه</div><div class="t">سامانه نمونه<br>آموزشی</div></div>
-    <div class="item">ثبت نام دروس دانشجو</div>
-    <div class="item">انتخاب واحد</div>
-    <div class="item">حذف و اضافه</div>
-    <div class="item">حذف اضطراری</div>
-    <div class="item">مشاهده آخرین وضعیت ثبت نام</div>
-    <div class="item active">مدیریت مالی نیمسال‌های تحصیلی</div>
-    <div class="item">ارسال درخواست اعتراض به نمره</div>
-    <div class="item">درخواست/مجوز</div>
-    <div class="item">ارزشیابی اساتید</div>
-  </aside>
-
-  <main class="main">
-    <section class="card">
-      <div class="info">
-        <dl>
-          <dt>نام دانشجو:</dt><dd>دانشجوی نمونه</dd>
-          <dt>کد ملی:</dt><dd>0000000000 (نمونه)</dd>
-          <dt>نام پدر:</dt><dd>نمونه</dd>
-          <dt>مقطع:</dt><dd>کارشناسی ارشد (نمونه)</dd>
-          <dt>رشته:</dt><dd>رشته نمونه</dd>
-        </dl>
-        <div class="avatar">عکس نمونه<br>(بدون تصویر واقعی)</div>
-      </div>
-      <div class="status">
-        <span>وضعیت نهایی مالی دانشجو: <span id="t1"></span> ریال</span>
-        <span>بدهکار: <span id="t2"></span> ریال</span>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="title">بدهکاری دانشجو (داده‌ی کاملاً ساختگی)</div>
-      <div class="scroll">
-        <table>
-          <thead><tr><th>مورد پرداخت</th><th>نوع پرداخت</th><th>نیمسال</th><th>مبلغ قابل پرداخت</th><th>تاریخ سند</th><th>بانک</th><th>وضعیت</th><th>توضیحات</th></tr></thead>
-          <tbody id="rows"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <div class="foot-watermark">تمام نام‌ها، کدها، تصاویر و مبالغ این صفحه ساختگی هستند و صرفاً جهت آموزش نحوه‌ی کار با سامانه ساخته شده‌اند.</div>
-  </main>
-</div>
-
-<script>
-var d=[["بیمه",20000],["هزینه خدمات آموزشی",1030000],["شهریه",11153380],["شهریه",11404430],["شهریه",4823540],["بیمه",27500],["شهریه",12119932],["شهریه",12432288],["شهریه",12986060],["بیمه",27500]];
-var fmt=function(n){return n.toLocaleString("en-US")};
-var sum=0,h="";
-d.forEach(function(r){
-  sum+=r[1];
-  h+="<tr><td>انتقال اطلاعات از سیستم قبل</td><td>انتقال اطلاعات از سیستم قبل</td><td>نمونه</td><td>"+fmt(r[1])+"</td><td>-</td><td>-</td><td class='ok'>تایید شده</td><td>"+r[0]+"</td></tr>";
-});
-document.getElementById("rows").innerHTML=h;
-document.getElementById("t1").textContent=fmt(sum);
-document.getElementById("t2").textContent=fmt(sum);
-</script>
-</body>
-</html>
+    <div class
