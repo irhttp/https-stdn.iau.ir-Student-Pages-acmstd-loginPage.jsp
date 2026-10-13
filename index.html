@@ -6,64 +6,62 @@
 <title>سامانه نمونه آموزشی - دانشجویی (نمونه آموزشی)</title>
 <style>
 :root{
-  --bg:#dde8f7; --topbar:#1b4fa0; --topbar2:#2a63c2; --card:#ffffff; --text:#1b2a41;
-  --soft:#e4edfb; --line:#b9cce8; --sidebar:#1f3f73; --sidebar-active:#2f5fa8;
-  --status:#eef2f7; --ok:#1c8a4a; --watermark:#c0392b;
+  --bg:#dbe6f6; --topbar:#1c3f72; --subnav:#eef2f8; --card:#ffffff; --text:#222b3a;
+  --soft:#e7edf8; --line:#c6d4ea; --sidebar:#1e3763; --sidebar-active:#2c5490;
+  --status:#eef1f6; --ok:#1c8a4a; --watermark:#c0392b; --thead:#1c3f72;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0f1826; --topbar:#13305c; --topbar2:#1b3f7a; --card:#15213a; --text:#e6edf8;
-    --soft:#1b2a46; --line:#2c4066; --sidebar:#0f1f3d; --sidebar-active:#1d3a6e; --status:#1b2a46;
+    --bg:#0f1826; --topbar:#162d52; --subnav:#182439; --card:#15213a; --text:#e6edf8;
+    --soft:#1b2a46; --line:#2c4066; --sidebar:#0f1f3d; --sidebar-active:#1d3a6e; --status:#1b2a46; --thead:#162d52;
   }
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,"Vazirmatn",sans-serif;font-size:14px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,"Vazirmatn",sans-serif;font-size:13.5px}
+
+.watermark-bar{background:var(--watermark);color:#fff;text-align:center;padding:6px;font-size:12.5px;font-weight:bold}
 
 .browser-chrome{background:#e3e6ea;padding:8px 14px 0;border-bottom:1px solid #c7ccd3}
 .tab{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #c7ccd3;border-bottom:none;border-radius:8px 8px 0 0;padding:6px 14px;font-size:12px;color:#444}
 .addr{display:flex;align-items:center;gap:10px;background:#fff;margin:0 0 8px;border-radius:20px;padding:6px 16px;font-size:12px;color:#555;border:1px solid #c7ccd3;direction:ltr;text-align:left}
 .addr .lock{color:#1c8a4a}
 
-.watermark-bar{background:var(--watermark);color:#fff;text-align:center;padding:5px;font-size:13px;font-weight:bold;letter-spacing:.5px}
+header{background:var(--topbar);color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.brand b{display:block;font-size:14px}
+.brand span{font-size:11px;opacity:.8}
+.icons{display:flex;gap:16px;font-size:13px;opacity:.95}
 
-header{background:linear-gradient(180deg,var(--topbar),var(--topbar2));color:#fff;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px}
-.brand .mark{width:46px;height:46px;border-radius:50%;background:#ffffff22;display:grid;place-items:center;font-size:10px;border:1px solid #ffffff55}
-.brand .names b{display:block;font-size:14px}
-.brand .names span{font-size:11px;opacity:.85}
-.icons{display:flex;gap:14px;font-size:12px;opacity:.9}
-
-.subnav{background:#eef3fb;border-bottom:1px solid var(--line);padding:8px 20px;display:flex;gap:18px;font-size:12px;color:#44567c;align-items:center}
+.subnav{background:var(--subnav);border-bottom:1px solid var(--line);padding:9px 20px;display:flex;gap:20px;font-size:12px;color:#44567c;align-items:center}
 .subnav .crumb{margin-right:auto;color:#8292ab}
 
 .layout{display:flex;max-width:1400px;margin:0 auto}
 .main{flex:1;padding:16px;min-width:0}
-.sidebar{width:230px;background:var(--sidebar);color:#fff;padding:14px 10px;flex-shrink:0}
-.sidebar .item{padding:10px 12px;border-radius:6px;font-size:12.5px;margin-bottom:6px;cursor:default}
+.sidebar{width:220px;background:var(--sidebar);color:#fff;padding:16px 10px;flex-shrink:0}
+.sidebar .item{padding:11px 14px;border-radius:5px;font-size:12.5px;margin-bottom:5px;cursor:default}
 .sidebar .item.active{background:var(--sidebar-active);font-weight:bold}
-.sidebar .logo-wrap{text-align:center;padding:10px 0 18px;border-bottom:1px solid #ffffff22;margin-bottom:14px}
-.sidebar .logo-wrap .emblem{width:60px;height:60px;border-radius:50%;background:#ffffff18;margin:0 auto 8px;display:grid;place-items:center;font-size:10px}
-.sidebar .logo-wrap div.t{font-size:12px;line-height:1.6}
+.sidebar .logo-wrap{text-align:center;padding:4px 0 20px}
+.sidebar .logo-wrap .emblem{width:56px;height:56px;border-radius:50%;background:#ffffff1a;margin:0 auto 8px;display:grid;place-items:center;font-size:10px;border:1px solid #ffffff40}
+.sidebar .logo-wrap div.t{font-size:12.5px;line-height:1.6}
 
-.card{background:var(--card);border:1px solid var(--line);border-radius:6px;margin-bottom:16px;overflow:hidden;box-shadow:0 1px 2px #0001}
-.info{display:flex;gap:20px;padding:18px}
-.avatar{width:90px;height:108px;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;font-size:11px;border-radius:4px;color:#7a8aa5;text-align:center}
-.info dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:13.5px}
-.info dt{color:#7a8aa5}.info dd{margin:0;font-weight:bold}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;margin-bottom:14px;overflow:hidden}
+.info{display:flex;gap:24px;padding:18px 20px;justify-content:flex-end}
+.info dl{margin:0;display:grid;grid-template-columns:auto auto;gap:10px 14px;font-size:13.5px;direction:rtl}
+.info dt{color:#222;text-align:right}.info dd{margin:0;font-weight:normal;text-align:right}
+.avatar{width:84px;height:98px;background:var(--soft);border:1px dashed var(--line);display:grid;place-items:center;font-size:10.5px;border-radius:4px;color:#8292ab;text-align:center;order:2}
 
-.status{background:var(--status);padding:16px 18px;display:flex;justify-content:space-between;font-weight:bold;gap:10px;flex-wrap:wrap;font-size:15px;border-top:1px solid var(--line)}
+.status{background:var(--status);padding:14px 20px;display:flex;justify-content:space-between;font-weight:bold;gap:10px;flex-wrap:wrap;font-size:14px;border-top:1px solid var(--line)}
 
-.title{background:linear-gradient(180deg,var(--topbar),var(--topbar2));color:#fff;padding:10px 14px;font-weight:bold;font-size:13.5px}
+.title{background:var(--thead);color:#fff;padding:9px 14px;font-weight:bold;font-size:13px}
 .scroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:760px}
-th{background:var(--soft);padding:9px 6px;font-size:12px;border-bottom:1px solid var(--line);color:#3a4b6b}
-td{padding:9px 6px;text-align:center;border-bottom:1px solid var(--line);font-size:12.5px}
-tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 45%,transparent)}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th{background:var(--thead);color:#fff;padding:9px 6px;font-size:11.5px;font-weight:normal}
+td{padding:9px 6px;text-align:center;border-bottom:1px solid var(--line);font-size:12px}
+tr:nth-child(even) td{background:var(--soft)}
 .ok{color:var(--ok);font-weight:bold}
 
-.foot-watermark{text-align:center;color:var(--watermark);font-size:12px;padding:14px;font-weight:bold}
+.foot-watermark{text-align:center;color:var(--watermark);font-size:11.5px;padding:14px;font-weight:bold}
 @media (max-width:900px){.sidebar{display:none}}
 </style>
 </head>
@@ -77,10 +75,7 @@ tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 45%,transparent)}
 </div>
 
 <header>
-  <div class="brand">
-    <div class="mark">آرم نمونه</div>
-    <div class="names"><b>سامانه نمونه مدیریت امور آموزشی</b><span>آموزشی — نسخه نمایشی</span></div>
-  </div>
+  <div class="brand"><b>سامانه نمونه مدیریت امور آموزشی</b><span>آموزشی — نسخه نمایشی</span></div>
   <div class="icons">👤 &nbsp; ✉️ &nbsp; خروج</div>
 </header>
 
@@ -106,7 +101,6 @@ tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 45%,transparent)}
   <main class="main">
     <section class="card">
       <div class="info">
-        <div class="avatar">عکس نمونه<br>(بدون تصویر واقعی)</div>
         <dl>
           <dt>نام دانشجو:</dt><dd>دانشجوی نمونه</dd>
           <dt>کد ملی:</dt><dd>0000000000 (نمونه)</dd>
@@ -114,6 +108,7 @@ tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 45%,transparent)}
           <dt>مقطع:</dt><dd>کارشناسی ارشد (نمونه)</dd>
           <dt>رشته:</dt><dd>رشته نمونه</dd>
         </dl>
+        <div class="avatar">عکس نمونه<br>(بدون تصویر واقعی)</div>
       </div>
       <div class="status">
         <span>وضعیت نهایی مالی دانشجو: <span id="t1"></span> ریال</span>
@@ -125,7 +120,7 @@ tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 45%,transparent)}
       <div class="title">بدهکاری دانشجو (داده‌ی کاملاً ساختگی)</div>
       <div class="scroll">
         <table>
-          <thead><tr><th>مورد پرداخت</th><th>نوع پرداخت</th><th>نیمسال</th><th>مبلغ قابل پرداخت</th><th>تاریخ سند</th><th>بانک</th><th>وضعیت</th><th>توضیحات</th></tr></thead>
+          <thead><tr><th>توضیحات</th><th>وضعیت</th><th>بانک</th><th>تاریخ سند</th><th>مبلغ قابل پرداخت</th><th>نیمسال</th><th>نوع پرداخت</th><th>مورد پرداخت</th></tr></thead>
           <tbody id="rows"></tbody>
         </table>
       </div>
@@ -141,7 +136,7 @@ var fmt=function(n){return n.toLocaleString("en-US")};
 var sum=0,h="";
 d.forEach(function(r){
   sum+=r[1];
-  h+="<tr><td>انتقال اطلاعات از سیستم قبل</td><td>انتقال اطلاعات از سیستم قبل</td><td>نمونه</td><td>"+fmt(r[1])+"</td><td>-</td><td>-</td><td class='ok'>تایید شده</td><td>"+r[0]+"</td></tr>";
+  h+="<tr><td>"+r[0]+"</td><td class='ok'>تایید شده</td><td>-</td><td>-</td><td>"+fmt(r[1])+"</td><td>نمونه</td><td>انتقال اطلاعات از سیستم قبل</td><td>انتقال اطلاعات از سیستم قبل</td></tr>";
 });
 document.getElementById("rows").innerHTML=h;
 document.getElementById("t1").textContent=fmt(sum);
