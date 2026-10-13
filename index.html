@@ -35,6 +35,8 @@ header{background:var(--topbar);color:#fff;padding:12px 20px;display:flex;align-
 
 .subnav{background:var(--subnav);border-bottom:1px solid var(--line);padding:9px 20px;display:flex;gap:20px;font-size:12px;color:#44567c;align-items:center}
 .subnav .crumb{margin-right:auto;color:#8292ab}
+.util{background:var(--subnav);border-bottom:1px solid var(--line);padding:7px 20px;display:flex;gap:18px;font-size:12px;color:#44567c}
+.helprow{background:var(--card);border-bottom:1px solid var(--line);padding:8px 20px;font-size:12px;color:#44567c;display:flex;justify-content:flex-end;align-items:center;gap:6px}
 
 .layout{display:flex;max-width:1400px;margin:0 auto}
 .main{flex:1;padding:16px;min-width:0}
@@ -46,7 +48,7 @@ header{background:var(--topbar);color:#fff;padding:12px 20px;display:flex;align-
 .sidebar .logo-wrap div.t{font-size:12.5px;line-height:1.6}
 
 .card{background:var(--card);border:1px solid var(--line);border-radius:4px;margin-bottom:14px;overflow:hidden}
-.info{display:flex;gap:24px;padding:18px 20px;justify-content:flex-end}
+.info{display:flex;gap:24px;padding:18px 20px;justify-content:flex-end;align-items:center}
 .info dl{margin:0;display:grid;grid-template-columns:auto auto;gap:10px 14px;font-size:13.5px;direction:rtl}
 .info dt{color:#222;text-align:right}.info dd{margin:0;font-weight:normal;text-align:right}
 .avatar{width:84px;height:98px;background:var(--soft);border:1px dashed var(--line);display:grid;place-items:center;font-size:10.5px;border-radius:4px;color:#8292ab;text-align:center;order:2}
@@ -79,10 +81,16 @@ tr:nth-child(even) td{background:var(--soft)}
   <div class="icons">👤 &nbsp; ✉️ &nbsp; خروج</div>
 </header>
 
+<div class="util">
+  <span>بازگشت</span><span>چاپ صفحه جاری</span><span>درباره</span>
+</div>
+
 <div class="subnav">
   <span>استان: نمونه</span><span>واحد: نمونه</span><span>دانشکده: نمونه</span><span>گروه آموزشی: نمونه</span><span>نیمسال: نمونه</span>
   <span class="crumb">صفحه اول ‹ پرداخت الکترونیکی</span>
 </div>
+
+<div class="helprow">راهنما ❓</div>
 
 <div class="layout">
   <aside class="sidebar">
