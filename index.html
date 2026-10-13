@@ -28,8 +28,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,"Vazirma
 .addr{display:flex;align-items:center;gap:10px;background:#fff;margin:0 0 8px;border-radius:20px;padding:6px 16px;font-size:12px;color:#555;border:1px solid #c7ccd3;direction:ltr;text-align:left}
 .addr .lock{color:#1c8a4a}
 
+.topstrip{background:var(--card);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:10px 20px}
+.topstrip .emblem2{width:52px;height:52px;border-radius:50%;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;font-size:10px;color:#8292ab;text-align:center}
+.topstrip .titles{text-align:right}
+.topstrip .titles b{display:block;font-size:14px;color:var(--text)}
+.topstrip .titles span{font-size:11px;color:#8292ab}
+
 header{background:var(--topbar);color:#fff;padding:0;display:flex;flex-direction:column}
-.header-top{display:flex;align-items:center;justify-content:space-between;padding:10px 20px 4px}
+.header-top{display:flex;align-items:center;justify-content:flex-start;padding:10px 20px 4px}
 .brand b{display:block;font-size:14px}
 .brand span{font-size:11px;opacity:.8}
 .icons{display:flex;gap:16px;font-size:13px;opacity:.95;align-items:center}
@@ -91,10 +97,14 @@ tr:nth-child(even) td{background:var(--soft)}
   <div class="addr"><span class="lock">🔒</span> sample.example-edu.local/Student/handlePaymentAction (نمونه)</div>
 </div>
 
+<div class="topstrip">
+  <div class="titles"><b>سامانه نمونه مدیریت یکپارچه امور آموزشی</b><span>آموزشی — نمونه آموزشیار</span></div>
+  <div class="emblem2">آرم<br>نمونه</div>
+</div>
+
 <header>
   <div class="header-top">
-    <div class="brand"><b>سامانه نمونه مدیریت امور آموزشی</b><span>آموزشی — نسخه نمایشی</span></div>
-    <div class="icons">👤 &nbsp; ✉️ &nbsp; خروج</div>
+    <div class="icons">خروج &nbsp; 👤 &nbsp; ✉️</div>
   </div>
   <div class="chrome-row">
     <span class="circ"></span>
@@ -117,5 +127,61 @@ tr:nth-child(even) td{background:var(--soft)}
 
 <div class="layout">
   <aside class="sidebar">
-    <div class="logo-wrap"><div class="emblem">آرم نمونه</div><div class="t">سامانه نمونه<br>آموزشی</div></div>
-    <div class
+    <div class="search">جستجوی منو...</div>
+    <div class="item">ثبت نام دروس دانشجو</div>
+    <div class="item">انتخاب واحد</div>
+    <div class="item">حذف و اضافه</div>
+    <div class="item">حذف اضطراری</div>
+    <div class="item">مشاهده آخرین وضعیت ثبت نام</div>
+    <div class="item active">مدیریت مالی نیمسال‌های تحصیلی</div>
+    <div class="item">ارسال درخواست اعتراض به نمره</div>
+    <div class="item">درخواست/مجوز</div>
+    <div class="item">ارزشیابی اساتید</div>
+  </aside>
+
+  <main class="main">
+    <section class="card">
+      <div class="info">
+        <dl>
+          <dt>نام دانشجو:</dt><dd>دانشجوی نمونه</dd>
+          <dt>کد ملی:</dt><dd>0000000000 (نمونه)</dd>
+          <dt>نام پدر:</dt><dd>نمونه</dd>
+          <dt>مقطع:</dt><dd>کارشناسی ارشد (نمونه)</dd>
+          <dt>رشته:</dt><dd>رشته نمونه</dd>
+        </dl>
+        <div class="avatar">عکس نمونه<br>(بدون تصویر واقعی)</div>
+      </div>
+      <div class="status">
+        <span>وضعیت نهایی مالی دانشجو: <span id="t1"></span> ریال</span>
+        <span>بدهکار: <span id="t2"></span> ریال</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="title">بدهکاری دانشجو (داده‌ی کاملاً ساختگی)</div>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>مورد پرداخت</th><th>نوع پرداخت</th><th>نیمسال</th><th>مبلغ قابل پرداخت</th><th>تاریخ سند</th><th>بانک</th><th>وضعیت</th><th>توضیحات</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="foot-watermark">تمام نام‌ها، کدها، تصاویر و مبالغ این صفحه ساختگی هستند و صرفاً جهت آموزش نحوه‌ی کار با سامانه ساخته شده‌اند.</div>
+  </main>
+</div>
+
+<script>
+var d=[["بیمه",20000],["هزینه خدمات آموزشی",1030000],["شهریه",11153380],["شهریه",11404430],["شهریه",4823540],["بیمه",27500],["شهریه",12119932],["شهریه",12432288],["شهریه",12986060],["بیمه",27500],["شهریه",15543918],["شهریه",5222714],["بد سلف سرویس",30000],["بیمه",31500]];
+var fmt=function(n){return n.toLocaleString("en-US")};
+var sum=0,h="";
+d.forEach(function(r){
+  sum+=r[1];
+  h+="<tr><td>انتقال اطلاعات از سیستم قبل</td><td>انتقال اطلاعات از سیستم قبل</td><td>نمونه</td><td>"+fmt(r[1])+"</td><td>-</td><td>-</td><td class='ok'>تایید شده</td><td>"+r[0]+"</td></tr>";
+});
+document.getElementById("rows").innerHTML=h;
+document.getElementById("t1").textContent=fmt(sum);
+document.getElementById("t2").textContent=fmt(sum);
+</script>
+</body>
+</html>
