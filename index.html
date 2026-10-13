@@ -6,9 +6,9 @@
 <title>سامانه نمونه آموزشی - دانشجویی (نمونه آموزشی)</title>
 <style>
 :root{
-  --bg:#dbe6f6; --topbar:#1c3f72; --subnav:#eef2f8; --card:#ffffff; --text:#222b3a;
+  --bg:#dbe6f6; --topbar:#2b63b8; --subnav:#eef2f8; --card:#ffffff; --text:#222b3a;
   --soft:#e7edf8; --line:#c6d4ea; --sidebar:#1e3763; --sidebar-active:#2c5490;
-  --status:#eef1f6; --ok:#1c8a4a; --watermark:#c0392b; --thead:#1c3f72;
+  --status:#eef1f6; --ok:#1c8a4a; --watermark:#c0392b; --thead:#274e8c;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
@@ -120,7 +120,7 @@ tr:nth-child(even) td{background:var(--soft)}
       <div class="title">بدهکاری دانشجو (داده‌ی کاملاً ساختگی)</div>
       <div class="scroll">
         <table>
-          <thead><tr><th>توضیحات</th><th>وضعیت</th><th>بانک</th><th>تاریخ سند</th><th>مبلغ قابل پرداخت</th><th>نیمسال</th><th>نوع پرداخت</th><th>مورد پرداخت</th></tr></thead>
+          <thead><tr><th>مورد پرداخت</th><th>نوع پرداخت</th><th>نیمسال</th><th>مبلغ قابل پرداخت</th><th>تاریخ سند</th><th>بانک</th><th>وضعیت</th><th>توضیحات</th></tr></thead>
           <tbody id="rows"></tbody>
         </table>
       </div>
@@ -136,7 +136,7 @@ var fmt=function(n){return n.toLocaleString("en-US")};
 var sum=0,h="";
 d.forEach(function(r){
   sum+=r[1];
-  h+="<tr><td>"+r[0]+"</td><td class='ok'>تایید شده</td><td>-</td><td>-</td><td>"+fmt(r[1])+"</td><td>نمونه</td><td>انتقال اطلاعات از سیستم قبل</td><td>انتقال اطلاعات از سیستم قبل</td></tr>";
+  h+="<tr><td>انتقال اطلاعات از سیستم قبل</td><td>انتقال اطلاعات از سیستم قبل</td><td>نمونه</td><td>"+fmt(r[1])+"</td><td>-</td><td>-</td><td class='ok'>تایید شده</td><td>"+r[0]+"</td></tr>";
 });
 document.getElementById("rows").innerHTML=h;
 document.getElementById("t1").textContent=fmt(sum);
